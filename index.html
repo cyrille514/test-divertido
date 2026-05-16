@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Divertido</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <style type="text/tailwindcss">
+
+    @layer base {
+      :root {
+        line-height: 1.6;
+      }
+ 
+      }
+  </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+
+    <div class="w-full max-w-7xl bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+        
+        <!-- Grid principal: Inicialmente 1 columna, cambia a diseño de 3 bloques (Formulario - Flecha - Resultados) -->
+        <div id="contenedor-principal" class="grid grid-cols-1 gap-6 items-center transition-all duration-500">
+            
+            <!-- BLOQUE IZQUIERDO: EL FORMULARIO -->
+            <div class="text-gray-700">
+                <h1 class="text-xl font-bold text-pink-700 tracking-wide mb-6 uppercase">Test Divertido</h1>
+                
+                <!-- Sección 1 -->
+                <div class="mb-6">
+                    <h2 class="text-sm font-medium mb-3 text-gray-600">1. Ordena estos animales en orden de preferencia:</h2>
+                    <div class="space-y-2 max-w-xl">
+                        <div class="grid grid-cols-3 items-center"><label class="pl-4">Vaca:</label><input id="vaca" type="text" class="col-span-2 border border-gray-300 rounded p-1 focus:outline-none focus:border-pink-500"></div>
+                        <div class="grid grid-cols-3 items-center"><label class="pl-4">Tigre:</label><input id="tigre" type="text" class="col-span-2 border border-gray-300 rounded p-1 focus:outline-none focus:border-pink-500"></div>
+                        <div class="grid grid-cols-3 items-center"><label class="pl-4">Oveja:</label><input id="oveja" type="text" class="col-span-2 border border-gray-300 rounded p-1 focus:outline-none focus:border-pink-500"></div>
+                        <div class="grid grid-cols-3 items-center"><label class="pl-4">Caballo:</label><input id="caballo" type="text" class="col-span-2 border border-gray-300 rounded p-1 focus:outline-none focus:border-pink-500"></div>
+                        <div class="grid grid-cols-3 items-center"><label class="pl-4">Mono:</label><input id="mono" type="text" class="col-span-2 border border-gray-300 rounded p-1 focus:outline-none focus:border-pink-500"></div>
+                    </div>
+                </div>
+
+                <!-- Sección 2 -->
+                <div class="mb-6">
+                    <h2 class="text-sm font-medium mb-3 text-gray-600">2. Escribe una palabra que describa lo Leukemia:</h2>
+                    <div class="space-y-2 max-w-xl">
+                        <div class="grid grid-cols-3 items-center"><label class="pl-4">Perro:</label><input id="perro" type="text" class="col-span-2 border border-gray-300 rounded p-1 focus:outline-none focus:border-pink-500"></div>
+                        <div class="grid grid-cols-3 items-center"><label class="pl-4">Gato:</label><input id="gato" type="text" class="col-span-2 border border-gray-300 rounded p-1 focus:outline-none focus:border-pink-500"></div>
+                        <div class="grid grid-cols-3 items-center"><label class="pl-4">Rata:</label><input id="rata" type="text" class="col-span-2 border border-gray-300 rounded p-1 focus:outline-none focus:border-pink-500"></div>
+                        <div class="grid grid-cols-3 items-center"><label class="pl-4">Café:</label><input id="cafe" type="text" class="col-span-2 border border-gray-300 rounded p-1 focus:outline-none focus:border-pink-500"></div>
+                        <div class="grid grid-cols-3 items-center"><label class="pl-4">Mar:</label><input id="mar" type="text" class="col-span-2 border border-gray-300 rounded p-1 focus:outline-none focus:border-pink-500"></div>
+                    </div>
+                </div>
+
+                <!-- Sección 3 -->
+                <div class="mb-8">
+                    <h2 class="text-sm font-medium mb-3 text-gray-600">3. Indica alguien importante para ti, que te sugiera este color:</h2>
+                    <div class="space-y-2 max-w-xl">
+                        <div class="grid grid-cols-3 items-center"><label class="pl-4">Amarillo:</label><input id="amarillo" type="text" class="col-span-2 border border-gray-300 rounded p-1 focus:outline-none focus:border-pink-500"></div>
+                        <div class="grid grid-cols-3 items-center"><label class="pl-4">Naranja:</label><input id="naranja" type="text" class="col-span-2 border border-gray-300 rounded p-1 focus:outline-none focus:border-pink-500"></div>
+                        <div class="grid grid-cols-3 items-center"><label class="pl-4">Blanco:</label><input id="blanco" type="text" class="col-span-2 border border-gray-300 rounded p-1 focus:outline-none focus:border-pink-500"></div>
+                        <div class="grid grid-cols-3 items-center"><label class="pl-4">Rojo:</label><input id="rojo" type="text" class="col-span-2 border border-gray-300 rounded p-1 focus:outline-none focus:border-pink-500"></div>
+                        <div class="grid grid-cols-3 items-center"><label class="pl-4">Verde:</label><input id="verde" type="text" class="col-span-2 border border-gray-300 rounded p-1 focus:outline-none focus:border-pink-500"></div>
+                    </div>
+                </div>
+
+                <!-- Botón Resultados -->
+                <button id="btn-resultados" class="bg-pink-800 hover:bg-pink-900 text-white text-xs font-semibold py-1.5 px-4 rounded shadow">
+                    resultados
+                </button>
+            </div>
+
+            <!-- BLOQUE INTERMEDIO: LA FLECHA ROSA (Inicialmente oculta) -->
+            <div id="bloque-flecha" class="hidden justify-center items-center md:flex-col py-4 md:py-0">
+                <!-- Icono de flecha apuntando a la derecha (abajo en móvil, derecha en PC) -->
+                <svg class="w-14 h-14 text-pink-500 transform rotate-90 md:rotate-0" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2L10.59 3.41 17.17 10H2v2h15.17l-6.58 6.59L12 22l10-10L12 2z"/>
+                </svg>
+            </div>
+
+            <!-- BLOQUE DERECHO: SECCIÓN OCULTA DE RESULTADOS -->
+            <div id="seccion-resultados" class="hidden border-t md:border-t-0 text-gray-700">
+                <h1 class="text-xl font-bold text-pink-700 tracking-wide mb-6 uppercase">Test Divertido</h1>
+                
+                <!-- Resultados Prioridades -->
+                <div class="mb-6">
+                    <h3 class="text-sm font-bold mb-3 text-gray-800">Tu orden de prioridades:</h3>
+                    <div class="space-y-2 max-w-xl">
+                        <div class="grid grid-cols-3 items-center"><label class="pl-4">Tu Carrera</label><input id="res_carrera" type="text" readonly class="col-span-2 border border-gray-300 bg-gray-50 rounded p-1 text-gray-600 focus:outline-none"></div>
+                        <div class="grid grid-cols-3 items-center"><label class="pl-4">El Orgullo</label><input id="res_orgullo" type="text" readonly class="col-span-2 border border-gray-300 bg-gray-50 rounded p-1 text-gray-600 focus:outline-none"></div>
+                        <div class="grid grid-cols-3 items-center"><label class="pl-4">El Amor</label><input id="res_amor" type="text" readonly class="col-span-2 border border-gray-300 bg-gray-50 rounded p-1 text-gray-600 focus:outline-none"></div>
+                        <div class="grid grid-cols-3 items-center"><label class="pl-4">La Familia</label><input id="res_familia" type="text" readonly class="col-span-2 border border-gray-300 bg-gray-50 rounded p-1 text-gray-600 focus:outline-none"></div>
+                        <div class="grid grid-cols-3 items-center"><label class="pl-4">El Dinero</label><input id="res_dinero" type="text" readonly class="col-span-2 border border-gray-300 bg-gray-50 rounded p-1 text-gray-600 focus:outline-none"></div>
+                    </div>
+                </div>
+
+                <!-- Resultados Visión de la vida -->
+                <div class="mb-6">
+                    <h3 class="text-sm font-bold mb-3 text-gray-800">Como ves la vida:</h3>
+                    <div class="space-y-2 max-w-xl">
+                        <div class="grid grid-cols-3 items-center"><label class="pl-4">Yo Soy...</label><input id="res_yo_soy" type="text" readonly class="col-span-2 border border-gray-300 bg-gray-50 rounded p-1 text-gray-600 focus:outline-none"></div>
+                        <div class="grid grid-cols-3 items-center"><label class="pl-4">Mi Pareja,</label><input id="res_pareja" type="text" readonly class="col-span-2 border border-gray-300 bg-gray-50 rounded p-1 text-gray-600 focus:outline-none"></div>
+                        <div class="grid grid-cols-3 items-center"><label class="pl-4">Lo que más odio:</label><input id="res_odio" type="text" readonly class="col-span-2 border border-gray-300 bg-gray-50 rounded p-1 text-gray-600 focus:outline-none"></div>
+                        <div class="grid grid-cols-3 items-center"><label class="pl-4">Para mi el sexo es</label><input id="res_sexo" type="text" readonly class="col-span-2 border border-gray-300 bg-gray-50 rounded p-1 text-gray-600 focus:outline-none"></div>
+                        <div class="grid grid-cols-3 items-center"><label class="pl-4">Y la vida...</label><input id="res_vida" type="text" readonly class="col-span-2 border border-gray-300 bg-gray-50 rounded p-1 text-gray-600 focus:outline-none"></div>
+                    </div>
+                </div>
+
+                <!-- Resultados Tu gente -->
+                <div class="mb-8">
+                    <h3 class="text-sm font-bold mb-3 text-gray-800">Tu gente:</h3>
+                    <div class="space-y-2 max-w-xl">
+                        <div class="grid grid-cols-3 items-center"><label class="pl-4">Nunca te olvidará</label><input id="res_nunca" type="text" readonly class="col-span-2 border border-gray-300 bg-gray-50 rounded p-1 text-gray-600 focus:outline-none"></div>
+                        <div class="grid grid-cols-3 items-center"><label class="pl-4">Puede ser tu gran amigo/a</label><input id="res_amigo" type="text" readonly class="col-span-2 border border-gray-300 bg-gray-50 rounded p-1 text-gray-600 focus:outline-none"></div>
+                        <div class="grid grid-cols-3 items-center"><label class="pl-4">Tu Alma Gemela:</label><input id="res_alma" type="text" readonly class="col-span-2 border border-gray-300 bg-gray-50 rounded p-1 text-gray-600 focus:outline-none"></div>
+                        <div class="grid grid-cols-3 items-center"><label class="pl-4">Realmente amas a...</label><input id="res_amas" type="text" readonly class="col-span-2 border border-gray-300 bg-gray-50 rounded p-1 text-gray-600 focus:outline-none"></div>
+                        <div class="grid grid-cols-3 items-center"><label class="pl-4">Siempre estará en tu memoria</label><input id="res_memoria" type="text" readonly class="col-span-2 border border-gray-300 bg-gray-50 rounded p-1 text-gray-600 focus:outline-none"></div>
+                    </div>
+                </div>
+
+                <!-- Botón inactivo decorativo derecho -->
+                <button class="bg-gray-100 border border-gray-300 text-gray-400 text-xs font-semibold py-1.5 px-4 rounded cursor-not-allowed">
+                    resultados
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Vinculación del archivo JS externo -->
+    <script src="./js/app.js"></script>
+</body>
+</html>
